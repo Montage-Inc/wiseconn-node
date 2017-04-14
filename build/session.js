@@ -78,7 +78,6 @@ var Session = function () {
 			return new Promise(function (resolve, reject) {
 				var request = _http2.default.request(options, function (response) {
 					if (response.statusCode < 200 || response.statusCode > 299) {
-						console.log('response = ', response);
 						var errorMessage = 'Failed to load page, status code: ' + response.statusCode + ',\n status message: ' + response.statusMessage;
 						return reject(new Error(errorMessage));
 					}
@@ -96,7 +95,6 @@ var Session = function () {
 						var parsedData = JSON.parse(data);
 
 						if (parsedData.ERRCode) {
-							console.log('parsedData = ', parsedData);
 							var _errorMessage = 'Failed to retrieve data, error code: ' + parsedData.ERRCode + ',\n error description: ' + parsedData.description;
 							return reject(new Error(_errorMessage));
 						}
@@ -118,4 +116,3 @@ var Session = function () {
 }();
 
 exports.default = Session;
-;

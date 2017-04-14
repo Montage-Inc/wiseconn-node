@@ -76,4 +76,3 @@ var Wiseconn = function () {
 }();
 
 exports.default = Wiseconn;
-;
