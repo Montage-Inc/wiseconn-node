@@ -47,6 +47,7 @@ var Wiseconn = function () {
 				return _summaryService2.default.getSummary(_this.session);
 			}).then(function (response) {
 				_this.queryParameters.ids = response.ids;
+				delete response.ids;
 				return response;
 			});
 		}
