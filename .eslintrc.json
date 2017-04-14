@@ -1,6 +1,7 @@
 {
   "parserOptions": {
-    "ecmaVersion": 7
+    "ecmaVersion": 7,
+    "sourceType": "module"
   },
   "env": {
     "browser": true,
@@ -55,6 +56,29 @@
     "max-params": [
       "warn",
       3
+    ],
+    "no-cond-assign": [
+      "error",
+      "always"
+    ],
+    "no-constant-condition": [
+      "error"
+    ],
+    "no-dupe-args": [
+      "error"
+    ],
+    "no-dupe-keys": [
+      "error"
+    ],
+    "no-empty": [
+      "error"
+    ],
+    "no-extra-parens": [
+      "error",
+      "all",
+      {
+        "nestedBinaryExpressions": false
+      }
     ],
     "no-extra-semi": [
       "error"
