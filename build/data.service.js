@@ -67,9 +67,6 @@ function createDataPoints(data, query) {
 
 function convertDatesToUnixTimestamps(data) {
 	return data.map(function (dataPoint) {
-		// const date = new Date(dataPoint.time);
-		// dataPoint.time = moment(date).format('MMMM Do YYY, h:mm');
-
 		dataPoint.time = new Date(dataPoint.time).getTime();
 		return dataPoint;
 	});
