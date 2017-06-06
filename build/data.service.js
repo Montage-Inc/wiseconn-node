@@ -3,6 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
+
+var _moment = require('moment');
+
+var _moment2 = _interopRequireDefault(_moment);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var dataRequestPath = 'rest/read/data';
 var lastDataRequestPath = 'rest/read/lastData';
 var allDataRequestPath = 'rest/read/allData';
@@ -18,8 +25,12 @@ exports.default = DataService;
 
 function getData(session, queryParameters) {
 	return session.requestData(dataRequestPath, queryParameters).then(function (measures) {
-		return measures.measure.map(function (measure) {
-			return changeKeyName(measure, 'value', 'data');
+		return measures.measure.filter(function (measure) {
+			return measure.value.length;
+		}).map(function (measure) {
+			measure.data = createDataPoints(measure.value, queryParameters);
+			delete measure.value;
+			return measure;
 		});
 	});
 }
@@ -43,23 +54,25 @@ function getLastData(session, queryParameters) {
 	});
 }
 
-function changeKeyName(objectSource, oldName, newName) {
-	var objectCopy = Object.assign({}, objectSource);
+function createDataPoints(data, query) {
+	var initTime = query.initTime.replace(/\//g, '-'); // moment.js requires '-' instead of '/'
+	var intervals = ['hours', 'days', 'months'];
 
-	objectCopy[newName] = objectSource[oldName];
-	delete objectCopy[oldName];
+	return data.map(function (value, index) {
+		var time = index === 0 ? (0, _moment2.default)(initTime).valueOf() : (0, _moment2.default)(initTime).add(index, intervals[query.idInterval]).valueOf();
 
-	return objectCopy;
+		return { time: time, value: value };
+	});
 }
 
 function convertDatesToUnixTimestamps(data) {
-	if (data.length) {
-		return data.map(function (dataPoint) {
-			dataPoint.time = new Date(dataPoint.time).getTime();
-			return dataPoint;
-		});
-	}
-	return data;
+	return data.map(function (dataPoint) {
+		// const date = new Date(dataPoint.time);
+		// dataPoint.time = moment(date).format('MMMM Do YYY, h:mm');
+
+		dataPoint.time = new Date(dataPoint.time).getTime();
+		return dataPoint;
+	});
 }
 
 function createDataPointObject(measure) {
