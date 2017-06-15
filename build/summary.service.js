@@ -17,6 +17,7 @@ function getSummary(session) {
 		summary.measure.ids = summary.measure.map(function (measure) {
 			return measure.id;
 		});
+
 		return summary.measure;
 	});
 }
