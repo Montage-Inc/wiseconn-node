@@ -10,8 +10,8 @@ var _crypto2 = _interopRequireDefault(_crypto);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var hostname = 'api.wiseconn.com';
-var port = '8080';
+var hostname = 'sslapi.wiseconn.com';
+var port = '443';
 var basePath = '/WiseApi/';
 
 var RequestService = {

@@ -6,9 +6,9 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _http = require('http');
+var _https = require('https');
 
-var _http2 = _interopRequireDefault(_http);
+var _https2 = _interopRequireDefault(_https);
 
 var _moment = require('moment');
 
@@ -76,7 +76,7 @@ var Session = function () {
 		key: 'makeRequest',
 		value: function makeRequest(options) {
 			return new Promise(function (resolve, reject) {
-				var request = _http2.default.request(options, function (response) {
+				var request = _https2.default.request(options, function (response) {
 					if (response.statusCode < 200 || response.statusCode > 299) {
 						var errorMessage = 'Failed to load page, status code: ' + response.statusCode + ',\n status message: ' + response.statusMessage;
 						return reject(new Error(errorMessage));
