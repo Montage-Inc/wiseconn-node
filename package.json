@@ -2,7 +2,7 @@
   "name": "wiseconn-node",
   "version": "1.0.0",
   "description": "Node wrapper for the Wiseconn API",
-  "main": "build/Wiseconn.js",
+  "main": "build/wiseconn.js",
   "author": "slangley <silaslangley98@gmail.com>",
   "license": "MIT",
   "scripts": {
