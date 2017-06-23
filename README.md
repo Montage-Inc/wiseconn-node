@@ -94,22 +94,23 @@ request method and for the specific format that should be used for dates.
 **`getMeasures()` must be called first.**
 
 One or more of the following can be used to retrieve data:
-`getAllData()`, `getData()`, `getLastData()`
+`getAllData()`, `getData()`, `getLastData()`.
+
 None of them need to be called in any particular order.
 
 `getStatus()` can be used to check whether the user's authentication
 status is valid or invalid.
 
 **Please consult The Wiseconn API documentation for any limits on the
-number of queries allowed per session.
-
-**
+number of queries allowed per session.**
 
 ## API
 
-### methods
+### Methods
 
 See the Wiseconn API docs for the fields that each method returns.
+
+#### Get Status
 
 ```
 wiseconn.getStatus();
@@ -119,6 +120,7 @@ Query Parameters: None
 
 Returns `valid` if the authentication is valid and `invalid` if the authentication is invalid.
 
+#### Get Measures
 
 ```
 wiseconn.getMeasures();
@@ -127,6 +129,8 @@ wiseconn.getMeasures();
 Query Parameters: None
 
 Returns a list of all the measures available to the User's Wiseconn account.
+
+#### Get Select Data
 
 ```
 wiseconn.getData(requestMethod, query);
@@ -164,6 +168,7 @@ If the `idInterval` is for one month, then use the format: `yyyy/mm`.
 
 You will get an error if they don't match.
 
+#### Get All Data
 
 ```
 wiseconn.getAllData(requestMethod, query);
@@ -178,6 +183,8 @@ Query Parameters are optional. Pass them in as an object:
     }
 
 ```
+
+#### Get Most Recent Data
 
 ```
 wiseconn.getLastData();
@@ -199,6 +206,6 @@ on measures retrieved by `getAllData()` or `getLastData()`.
     }
 ```
 
-### Error+
+### Error
 
 See the Wiseconn API documentation for a list of the different Wiseconn error types.
