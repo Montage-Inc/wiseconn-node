@@ -1,0 +1,25 @@
+{
+  "name": "wiseconn-node",
+  "version": "1.0.0",
+  "description": "Node wrapper for the Wiseconn API",
+  "main": "build/wiseconn.js",
+  "author": "slangley <silaslangley98@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint ./lib/**/*",
+    "build": "./node_modules/.bin/babel ./lib --out-dir build"
+  },
+  "dependencies": {
+    "es6-promise": "^4.0.5",
+    "express": "^4.15.2",
+    "moment": "^2.17.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-eslint": "^7.1.1",
+    "babel-polyfill": "^6.22.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "eslint": "^3.19.0"
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 7,
+    "sourceType": "module"
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "rules": {
+    "comma-dangle": [
+      "error", {
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "functions": "never"
+    }],
+    "eol-last": [
+      "error",
+      "always"
+    ],
+    "indent": [
+      "error",
+      "tab"
+    ],
+    "key-spacing": [
+      "error",
+      {
+        "singleLine": {
+          "beforeColon": false,
+          "afterColon": true
+        },
+        "multiLine": {
+          "beforeColon": true,
+          "afterColon": true,
+          "align": "colon"
+        }
+      }
+    ],
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "max-len": [
+      "warn",
+      {
+        "code": 120
+      }
+    ],
+    "max-lines": [
+      "warn",
+      {
+        "max": 150
+      }
+    ],
+    "max-params": [
+      "warn",
+      3
+    ],
+    "no-cond-assign": [
+      "error",
+      "always"
+    ],
+    "no-constant-condition": [
+      "error"
+    ],
+    "no-dupe-args": [
+      "error"
+    ],
+    "no-dupe-keys": [
+      "error"
+    ],
+    "no-empty": [
+      "error"
+    ],
+    "no-extra-parens": [
+      "error",
+      "all",
+      {
+        "nestedBinaryExpressions": false
+      }
+    ],
+    "no-extra-semi": [
+      "error"
+    ],
+    "no-trailing-spaces": [
+      "error",
+      {
+        "skipBlankLines": false
+      }
+    ],
+    "no-unreachable" : [
+      "error"
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ]
+  }
+}
