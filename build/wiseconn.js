@@ -49,6 +49,8 @@ var Wiseconn = function () {
 				_this.queryParameters.ids = response.ids;
 				delete response.ids;
 				return response;
+			}).catch(function (error) {
+				console.log('wiseconn-node, wiseconn.js, Session.login(), Error: ', error);
 			});
 		}
 	}, {
@@ -59,7 +61,9 @@ var Wiseconn = function () {
 	}, {
 		key: 'getAllData',
 		value: function getAllData(queryFilters) {
-			return _dataService2.default.getAllData(this.session, this.mergeQueryParameters(queryFilters));
+			return _dataService2.default.getAllData(this.session, this.mergeQueryParameters(queryFilters)).catch(function (error) {
+				console.log('wiseconn-node, wiseconn.js, getAllData(), Error:  = ', error);
+			});
 		}
 	}, {
 		key: 'getLastData',
